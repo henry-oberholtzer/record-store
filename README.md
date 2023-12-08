@@ -28,7 +28,6 @@ By Henry Oberholtzer
 ```md
 App
 ├── Header
-│   ├── UIControlButton [x3]
 │   │   - View InventoryGrid
 │   │   - View InventoryForm (to add new items)
 ├── InventoryGrid
@@ -36,12 +35,9 @@ App
 │   │   - On click, view InventoryItemDetails rendered according to the items ID
 ├── InventoryItemDetails
 │   │   - Displays all relevant information to the item
-│   ├── UIControlButton
 │   │   - Deletes item from inventory
-│   ├── UIControlButton
 │   │   - View IventoryForm to edit item
 ├── InventoryForm
-│   ├── UIControlButton
 │   │   - Finish editing / creating item
 ```
 

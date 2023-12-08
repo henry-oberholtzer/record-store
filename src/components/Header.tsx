@@ -7,6 +7,7 @@ const Header = (props: headerProps) => {
         <hr />
         <button onClick={()=> props.setPageView(props.viewInventory)}>View Inventory</button>
         <button onClick={()=> props.setPageView(props.viewNewItem)}>Add New Item</button>
+        <hr />
         </>
     )
 }
