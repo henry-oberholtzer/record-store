@@ -1,30 +1,61 @@
-# React + TypeScript + Vite
+# Inventory-Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React web application written in Typescript & built using Vite
 
-Currently, two official plugins are available:
+By Henry Oberholtzer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+*   React
+*   TypeScript
+*   JavaScript
+*   Vite
+*   Webpack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Description
 
-- Configure the top-level `parserOptions` property like this:
+### User Stories
+*   See all inventory listed
+*   See specifications of inventory and properties of the product
+*   Access a new form to add a product to the inventory
+*   View details of a product by clicking on it
+*   View details of product in inventory
+*   Be able to decrease the amount in inventory by clicking a button
+*   PropTypes should be used for all properties
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Component Tree
+
+```md
+App
+├── Header
+│   ├── UIControlButton [x3]
+│   │   - View InventoryGrid
+│   │   - View InventoryForm (to add new items)
+├── InventoryGrid
+│   ├── InventoryGridItem [iterated as needed]
+│   │   - On click, view InventoryItemDetails rendered according to the items ID
+├── InventoryItemDetails
+│   │   - Displays all relevant information to the item
+│   ├── UIControlButton
+│   │   - Deletes item from inventory
+│   ├── UIControlButton
+│   │   - View IventoryForm to edit item
+├── InventoryForm
+│   ├── UIControlButton
+│   │   - Finish editing / creating item
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Setup/Installation Requirements
+
+* Download the repository using `git clone https://github.com/henry-oberholtzer/iventory-tracker.git` in terminal or downloading the ZIP folder from github
+* Run `npm install` in the root folder
+* To view the application on a dev server, run `npm dev`
+
+## Known Bugs
+
+*   No known bugs at the time of publication, please contact me if any arise.
+
+## License
+
+Copyright [Henry Oberholtzer](https://www.henryoberholtzer.com/) (c) 2023
+Code licensed under GNU GPLv3
