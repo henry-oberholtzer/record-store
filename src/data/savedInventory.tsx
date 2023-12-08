@@ -15,6 +15,7 @@ const savedInventory: inventoryItem[] = [{
     retailPrice: 12,
     cost: 8,
     key: v4(),
+    toDelete: false,
 },
 {
     artist: "Audio Pancake",
@@ -30,6 +31,7 @@ const savedInventory: inventoryItem[] = [{
     retailPrice: 12,
     cost: 8,
     key: v4(),
+    toDelete: false,
 }]
 
 export default savedInventory;

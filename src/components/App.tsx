@@ -4,6 +4,7 @@ import { inventoryItem } from './interfaces';
 import savedInventory from '../data/savedInventory';
 import InventoryGrid from './InventoryGrid';
 import InventoryItemDetails from './InventoryItemDetails';
+import InventoryForm from './InventoryForm';
 
 function App() {
   const [pageView, setPageView] = useState<number>(0)
@@ -21,7 +22,11 @@ function App() {
   }
   
   const itemAdjust = (item: inventoryItem) => {
-    if (getItemFromInventory(item.key)) {
+    if (item.toDelete === true) {
+      setInventory(
+        inventory.filter(el => el.key !== item.key)
+      )
+    } else if (getItemFromInventory(item.key)) {
       setInventory(
         inventory.map((i) => i.key === item.key ? item : i)
       )
@@ -30,9 +35,6 @@ function App() {
         [...inventory, item]
         )
     }
-    // check if item exists by key in inventory,
-      // if item does not exist, add to inventory,
-      // if item does exist, replace with the newly recieved item
   }
 
   const currentView = () => {
@@ -49,7 +51,9 @@ function App() {
         return(
           <InventoryForm
             buttonText="Add to Inventory"
-            itemToEdit={false}
+            itemAdjust={itemAdjust}
+            setPageView={setPageView}
+            returnPage={pageInv}
           />
         )
       } else if (pageView === pageEditItem && editItem) {
@@ -57,6 +61,9 @@ function App() {
           <InventoryForm
             buttonText="Finish Editing Item & Update Inventory"
             itemToEdit={getItemFromInventory(editItem)}
+            itemAdjust={itemAdjust}
+            setPageView={setPageView}
+            returnPage={pageItemDetails}
           />
         )
       } else if (pageView === pageItemDetails && viewItem) {
@@ -64,6 +71,7 @@ function App() {
           <InventoryItemDetails
             item={getItemFromInventory(viewItem)}
             setPageView={setPageView}
+            pageInv={pageInv}
             pageEditItem={pageEditItem}
             setEditItem={setEditItem}
             itemAdjust={itemAdjust}

@@ -6,10 +6,11 @@ export interface inventoryItem {
     released: string,
     genres: string[], 
     description: string,
-    type: '12"' | 'CD' | '2x12"' | '3xLP'
+    type: string,
     imageURL: string,
     stock: number,
     retailPrice: number,
     cost: number,
     key: string,
+    toDelete: boolean,
 }

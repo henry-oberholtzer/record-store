@@ -7,12 +7,14 @@ const InventoryGrid = (props: InventoryGrid) => {
     <>
     {props.inventory.map(item => {
       return(
-        <InventoryGridItem
-          item={item}
-          setViewItem={props.setViewItem}
-          setPageView={props.setPageView}
-          pageItemDetails={props.pageItemDetails}
-        />
+        <div key={item.key}>
+          <InventoryGridItem
+            item={item}
+            setViewItem={props.setViewItem}
+            setPageView={props.setPageView}
+            pageItemDetails={props.pageItemDetails}
+          />
+        </div>
       )
     })}
     </>
