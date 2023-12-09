@@ -38,6 +38,25 @@
     margin: 0;
 }
 
+#inventoryAdjust {
+    width: 4em;
+    position: relative;
+    padding: 1px;
+    margin: 0 1em 0 0;
+}
+
+.invAdjustButton {
+    height: 100%;
+    position: relative;
+    border-radius: 2px;
+    padding: 3px;
+    border: 1px solid var(--light-grey)
+}
+
+.invAdjustButton:hover {
+    background-color: #c2c2c2;
+}
+
 .itemDetailsList:nth-of-type(2) {
     padding: 0 0 0 14px;
 }
@@ -45,3 +64,11 @@
 .itemDetailsListTitle {
     border-bottom: 1px solid var(--light-grey);
 }
+
+.invAdjLi {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 5px;
+}
+

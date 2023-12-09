@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./InventoryItemDetails.css";
 
 const InventoryItemDetails = (props: props) => {
-  const [inventoryAdjustNum, setInventoryAdjustNum] = useState<number>(0);
+  const [inventoryAdjustNum, setInventoryAdjustNum] = useState<number>(-1);
   const i = props.item;
   return (
     <div className="itemDetails">
@@ -14,47 +14,66 @@ const InventoryItemDetails = (props: props) => {
           <h3 className="itemDetailsTitle">
             {i.artist} - {i.title}
           </h3>
-            <div>
-              <ul className="itemDetailsList">
-                <li className="itemDetailsListTitle"><b>Release Info</b></li>
-                <li><b>Label:</b> {i.recordLabel}</li>
-                <li><b>Catalog:</b> {i.catalogNumber}</li>
-                <li><b>Released:</b> {i.released}</li>
-                <li><b>Format:</b> {i.type}</li>
-                <li><b>Genres:</b> {i.genres.join(", ")}</li>
-              </ul>
-              <ul className="itemDetailsList">
-                <li className="itemDetailsListTitle"><b>Product Info</b></li>
-                <li><b>Retail:</b> ${i.retailPrice}</li>
-                <li><b>Unit Cost:</b> ${i.cost}</li>
-                <li><b>In Stock:</b> {i.stock > 0 ? `${i.stock}` : "Out Of Stock"}</li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>    
+          <div>
+            <ul className="itemDetailsList">
+              <li className="itemDetailsListTitle">
+                <b>Release Info</b>
+              </li>
+              <li>
+                <b>Label:</b> {i.recordLabel}
+              </li>
+              <li>
+                <b>Catalog:</b> {i.catalogNumber}
+              </li>
+              <li>
+                <b>Released:</b> {i.released}
+              </li>
+              <li>
+                <b>Format:</b> {i.type}
+              </li>
+              <li>
+                <b>Genres:</b> {i.genres.join(", ")}
+              </li>
+            </ul>
+            <ul className="itemDetailsList">
+              <li className="itemDetailsListTitle">
+                <b>Product Info</b>
+              </li>
+              <li>
+                <b>Retail:</b> ${i.retailPrice}
+              </li>
+              <li>
+                <b>Unit Cost:</b> ${i.cost}
+              </li>
+              <li>
+                <b>In Stock:</b> {i.stock > 0 ? `${i.stock}` : "Out Of Stock"}
+              </li>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const stock = i.stock + inventoryAdjustNum;
+                  props.itemAdjust({
+                    ...i,
+                    stock,
+                  });
+                }}>
+                <li className="invAdjLi">
+                  <label className="hidden" htmlFor="inventoryAdjust">
+                    <b>Adjust Stock: </b>
+                  </label>
+                  <input
+                    id="inventoryAdjust"
+                    value={inventoryAdjustNum}
+                    type="number"
+                    onChange={(e) =>
+                      setInventoryAdjustNum(parseInt(e.target.value))
+                    }></input>
+                  <button className="invAdjustButton" type="submit">Adjust Stock</button>
+                </li>
+              </form>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="itemDetailsBottom"></div>
-      <div className="itemDetailsStockAdjust">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const stock = i.stock + inventoryAdjustNum;
-            props.itemAdjust({
-              ...i,
-              stock,
-            });
-          }}>
-          <label htmlFor="inventoryAdjust"><b>Adjust Inventory:</b></label>
-          <input
-            id="inventoryAdjust"
-            value={inventoryAdjustNum}
-            type="number"
-            onChange={(e) =>
-              setInventoryAdjustNum(parseInt(e.target.value))
-            }></input>
-          <button type="submit">Adjust</button>
-        </form>
       </div>
       <div className="itemDetailsDescription">
         <p>{i.description}</p>

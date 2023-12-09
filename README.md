@@ -49,7 +49,7 @@ App
 
 ## Known Bugs
 
-*   No known bugs at the time of publication, please contact me if any arise.
+*   When navigating to "Edit Item" and clicking on "Add New Item" form information is retained
 
 ## License
 

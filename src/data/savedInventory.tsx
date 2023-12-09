@@ -32,6 +32,22 @@ const savedInventory: inventoryItem[] = [{
     cost: 8,
     key: v4(),
     toDelete: false,
+},
+{
+    artist: "Ticon",
+    title: "Tekk, No / Ass-Tronaut",
+    recordLabel: "TIP.World",
+    catalogNumber: "tipw007",
+    released: "2000",
+    genres: ["Psy-Trance", "Trance"],
+    description: "A: Tekk, No B: Ass-Tronaut",
+    type: '12"',
+    imageURL: "https://i.discogs.com/K3bN6klkGvr1XsrYKGkbVy2l1Q3Khm_jFwQ7wyBqbWA/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjQ1/NC0xMTE5ODM0Mzgy/LmpwZw.jpeg",
+    stock: 50,
+    retailPrice: 11,
+    cost: 8,
+    key: v4(),
+    toDelete: false,
 }]
 
 export default savedInventory;
