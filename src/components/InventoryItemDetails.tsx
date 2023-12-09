@@ -14,30 +14,27 @@ const InventoryItemDetails = (props: props) => {
           <h3 className="itemDetailsTitle">
             {i.artist} - {i.title}
           </h3>
-          <div className="itemDetailsInfo">
-            <ul>
-              <li><b>Label:</b> {i.recordLabel}</li>
-              <li><b>Catalog:</b> {i.catalogNumber}</li>
-              <li><b>Released:</b> {i.released}</li>
-              <li><b>Format:</b> {i.type}</li>
-              <li><b>Genres:</b> {i.genres.join(", ")}</li>
-            </ul>
-          </div>
+            <div>
+              <ul className="itemDetailsList">
+                <li className="itemDetailsListTitle"><b>Release Info</b></li>
+                <li><b>Label:</b> {i.recordLabel}</li>
+                <li><b>Catalog:</b> {i.catalogNumber}</li>
+                <li><b>Released:</b> {i.released}</li>
+                <li><b>Format:</b> {i.type}</li>
+                <li><b>Genres:</b> {i.genres.join(", ")}</li>
+              </ul>
+              <ul className="itemDetailsList">
+                <li className="itemDetailsListTitle"><b>Product Info</b></li>
+                <li><b>Retail:</b> ${i.retailPrice}</li>
+                <li><b>Unit Cost:</b> ${i.cost}</li>
+                <li><b>In Stock:</b> {i.stock > 0 ? `${i.stock}` : "Out Of Stock"}</li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>    
         </div>
       </div>
       <div className="itemDetailsBottom"></div>
-      
-      <div className="itemDetailsPrice">
-        <div>
-          <p>Retail Price: ${i.retailPrice}</p>
-        </div>
-        <div>
-          <p>Cost: ${i.cost}</p>
-        </div>
-      </div>
-      <div className="itemDetailsStock">
-        {i.stock > 0 ? <p>Stock: {i.stock}</p> : <p>Out Of Stock</p>}
-      </div>
       <div className="itemDetailsStockAdjust">
         <form
           onSubmit={(e) => {
@@ -48,7 +45,7 @@ const InventoryItemDetails = (props: props) => {
               stock,
             });
           }}>
-          <label htmlFor="inventoryAdjust">Adjust Inventory:</label>
+          <label htmlFor="inventoryAdjust"><b>Adjust Inventory:</b></label>
           <input
             id="inventoryAdjust"
             value={inventoryAdjustNum}

@@ -1,15 +1,13 @@
+:root {
+    --light-grey: rgb(122, 122, 122);
+}
+
 .itemDetails {
     margin-left: 7px;
 }
 
-.itemDetails li, .itemDetails ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.itemDetailsTitle {
-    margin: 0;
+.itemDetailsTop {
+    display: flex;
 }
 
 .itemDetailsImage {
@@ -17,11 +15,33 @@
     border-radius: 5px;
     margin: 7px 14px 7px 0px;
 }
+.itemDetailsSideInfo {
+    margin: 7px 7px 0 0;
+    height: 200px;
+    width: 100%;
+}
 
-.itemDetailsTop {
+.itemDetailsSideInfo div {
     display: flex;
 }
 
-.itemDetailsSideInfo {
-    margin: 7px 7px 0 0;
+.itemDetailsTitle {
+    margin: 0;
+}
+
+.itemDetailsList {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.itemDetailsList:nth-of-type(2) {
+    padding: 0 0 0 14px;
+}
+
+.itemDetailsListTitle {
+    border-bottom: 1px solid var(--light-grey);
 }
