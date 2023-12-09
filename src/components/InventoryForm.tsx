@@ -1,30 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { v4 } from "uuid";
 import { inventoryItem } from "./interfaces";
+import { emptyItem } from "../data/savedInventory";
 import "./InventoryItemDetails.css";
 
 const InventoryForm = (props: props) => {
-  const [item, setItem] = useState<inventoryItem>(
-    props.itemToEdit
-      ? props.itemToEdit
-      : {
-          artist: "",
-          title: "",
-          recordLabel: "",
-          catalogNumber: "",
-          released: "",
-          genres: [],
-          description: "",
-          type: '12"',
-          imageURL: "",
-          stock: 0,
-          retailPrice: 0,
-          cost: 0,
-          key: v4(),
-          toDelete: false,
-        }
-  );
+  const [item, setItem] = useState<inventoryItem>(props.itemToEdit ? props.itemToEdit : {...emptyItem})
 
   const checkItemValues = (invItem: inventoryItem) => {
     const itemKeys = Object.keys(item);

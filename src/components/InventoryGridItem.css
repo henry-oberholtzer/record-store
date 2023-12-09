@@ -56,3 +56,21 @@
 .invGridItem #info * {
     margin: 0;
 }
+
+@media only screen and (max-width: 480px) {
+    .invGridItem {
+        width: 292px;
+    }
+    .invGridItem .title {
+        width: 183px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .invGridItem {
+        width: 362px;
+    }
+    .invGridItem .title {
+        width: 253px;
+    }
+}
