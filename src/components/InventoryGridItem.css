@@ -1,0 +1,54 @@
+.invGridItem {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 7px;
+    margin: 0 7px 7px 0;
+    width: 400px;
+    box-shadow: 1px 1px 1px lightgray;
+    transition: all 0.1s ease-in-out;
+}
+
+.invGridItem:hover {
+    box-shadow: 1px 1px 1px black;
+    cursor: pointer;
+}
+
+.invGridItem img {
+    height: 100px;
+    min-width: 100px;
+    overflow: hidden;
+    border-radius: 2px;
+    margin: 0 7px 0 0;
+}
+
+.invGridItem #prodinf {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: inherit
+}
+
+.invGridItem #labelyear {
+    font-size: 0.75em;
+}
+
+.invGridItem #abt {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+}
+
+.invGridItem .title {
+    margin: 0;
+    width: 291px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.invGridItem #info * {
+    margin: 0;
+}

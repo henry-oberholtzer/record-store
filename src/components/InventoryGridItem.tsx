@@ -1,23 +1,32 @@
 import PropTypes from "prop-types";
 import { inventoryItem } from "./interfaces";
+import "./InventoryGridItem.css";
 
 const InventoryGridItem = (props: InventoryGridItem) => {
   const i = props.item;
   return (
     <div
+      className="invGridItem"
       key={i.key}
       onClick={() => {
         props.setPageView(props.pageItemDetails);
         props.setViewItem(i.key);
       }}>
       <img src={i.imageURL} alt={i.title} />
-      <h4>
-        {i.artist} - {i.title} | {i.type}
-      </h4>
-      <h5>${i.retailPrice}</h5>
-      <p>
-        {i.recordLabel} - {i.released}
-      </p>
+      <div id="prodinf">
+        <div id="abt">
+          <h5 className="title" title={i.artist}>{i.artist}</h5>
+          <h4 className="title"  title={i.title}>{i.title}</h4>
+        </div>
+        <div id="info">
+          <h5>
+            {i.type} | ${i.retailPrice}
+          </h5>
+          <p id="labelyear">
+            {i.recordLabel} - {i.released}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
