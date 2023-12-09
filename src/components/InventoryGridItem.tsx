@@ -6,7 +6,7 @@ const InventoryGridItem = (props: InventoryGridItem) => {
   const i = props.item;
   return (
     <div
-      className="invGridItem"
+      className={i.stock < 1 ? "invGridItem outOfStock" : "invGridItem"}
       key={i.key}
       onClick={() => {
         props.setPageView(props.pageItemDetails);
@@ -19,9 +19,7 @@ const InventoryGridItem = (props: InventoryGridItem) => {
           <h4 className="title"  title={i.title}>{i.title}</h4>
         </div>
         <div id="info">
-          <h5>
-            {i.type} | ${i.retailPrice}
-          </h5>
+          {i.stock < 1 ? <h5>{i.type} | ${i.retailPrice} Out Of Stock</h5> : <h5>{i.type} | ${i.retailPrice}</h5>}
           <p id="labelyear">
             {i.recordLabel} - {i.released}
           </p>

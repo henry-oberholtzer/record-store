@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { inventoryItem } from './interfaces';
 import InventoryGridItem from './InventoryGridItem';
+import './InventoryGrid.css';
 
 const InventoryGrid = (props: InventoryGrid) => {
   return (
-    <>
+    <div className="inventory-grid">
     {props.inventory.map(item => {
       return(
         <div key={item.key}>
@@ -17,7 +18,7 @@ const InventoryGrid = (props: InventoryGrid) => {
         </div>
       )
     })}
-    </>
+    </div>
   )
 }
 

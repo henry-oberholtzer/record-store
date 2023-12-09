@@ -49,6 +49,10 @@
     white-space: nowrap;
 }
 
+.outOfStock {
+    color: rgb(119, 119, 119)
+}
+
 .invGridItem #info * {
     margin: 0;
 }
