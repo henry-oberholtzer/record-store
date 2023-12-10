@@ -1,0 +1,56 @@
+.formTextArea {
+    width: 100%;
+}
+
+.formImageURL {
+    position: relative;
+    top: -50px;
+    left: 7px;
+    opacity: 0.25;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.itemDetailsTitle {
+    display: flex;
+    flex-basis: 100%;
+}
+
+.formTitleInput {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.formImageURL:hover, .formImageURL:focus {
+    opacity: 1;
+}
+.formImage {
+    height: 200px;
+    width: 200px;
+    margin: 0px 14px 7px 0px;
+}
+
+.formDash {
+    width: 1ch;
+}
+
+.itemDetails li {
+    width: 100%;
+    display: flex;
+}
+
+.itemDetails label {
+    font-weight: bold;
+    flex-basis: 100%;
+}
+
+.itemDetails li input, .itemDetails li select {
+    flex-grow: 3;
+}
+
+.itemDetails textarea {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    height: 100%;
+    resize: none;
+}

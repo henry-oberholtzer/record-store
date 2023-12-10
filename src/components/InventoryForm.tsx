@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { inventoryItem } from "./interfaces";
 import { emptyItem } from "../data/savedInventory";
 import "./InventoryItemDetails.css";
+import "./InventoryForm.css";
+import CD from "./../assets/Compact_Disc.jpg"
 
 const InventoryForm = (props: props) => {
   const [item, setItem] = useState<inventoryItem>(props.itemToEdit ? props.itemToEdit : {...emptyItem})
@@ -22,8 +24,8 @@ const InventoryForm = (props: props) => {
   return (
     <div className="itemDetails">
       <div className="itemDetailsTop">
-        <div>
-          <img className="itemDetailsImage" src={item.imageURL} alt="User Provided Image" />
+        <div className="formImage">
+          <img width="200px" height="200px" className="itemDetailsImage" src={item.imageURL ? item.imageURL : CD} alt="User Provided Image" />
           <label className="hidden">Image URL: </label>
           <input
             onChange={(e) =>
@@ -34,6 +36,7 @@ const InventoryForm = (props: props) => {
             }
             type="text"
             placeholder="Image URL"
+            className="formImageURL"
             value={item.imageURL}></input>
         </div>
         <div className="itemDetailsSideInfo">
@@ -48,6 +51,7 @@ const InventoryForm = (props: props) => {
               }
               type="text"
               placeholder="Artist"
+              className="itemDetailsTitle formTitleInput"
               value={item.artist}></input>
             <label className="hidden">Title: </label>
             <input
@@ -59,6 +63,7 @@ const InventoryForm = (props: props) => {
               }
               type="text"
               placeholder="Title"
+              className="itemDetailsTitle formTitleInput"
               value={item.title}></input>
           </div>
           <div>
@@ -179,19 +184,17 @@ const InventoryForm = (props: props) => {
           </div>
         </div>
       </div>
-      <div className="itemDetailsPrice">
-        <div></div>
-        <div></div>
-      </div>
       <div className="itemDetailsDescription">
-        <label className="">Description: </label>
-        <textarea
+        <label className="hidden">Description: </label>
+        <textarea className="formTextArea"
           onChange={(e) =>
             setItem({
               ...item,
               description: e.target.value,
             })
           }
+          placeholder="Description, tracklist, release notes, etc"
+          maxLength={500}
           value={item.description}></textarea>
       </div>
       <hr />

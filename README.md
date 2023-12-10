@@ -50,8 +50,17 @@ App
 ## Known Bugs
 
 *   When navigating to "Edit Item" and clicking on "Add New Item" form information is retained
+*   itemAdjust current breaks the rule of no conditionals for hooks, looking into work-arounds
 
 ## License
 
 Copyright [Henry Oberholtzer](https://www.henryoberholtzer.com/) (c) 2023
-Code licensed under GNU GPLv3
+
+Original code licensed under GNU GPLv3
+
+[Compact_Disc.jpg by Arun Kulshrestha](https://commons.wikimedia.org/wiki/File:Compact_Disc.jpg) is licensed under a CC BY-SA 2.5 via Wikimedia
+
+[QT Europtype Font](https://www.ctan.org/tex-archive/fonts/qualitype/) (C) 
+1992 QualiType and licensed under a SIL OFL 1.1 and GNU GPL 2.0
+
+Placeholder data is from Discogs, and used for educational purposes.

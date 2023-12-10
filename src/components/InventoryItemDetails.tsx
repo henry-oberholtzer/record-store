@@ -20,19 +20,19 @@ const InventoryItemDetails = (props: props) => {
                 <b>Release Info</b>
               </li>
               <li>
-                <b>Label:</b> {i.recordLabel}
+                <b>Label:&nbsp;</b> {i.recordLabel}
               </li>
               <li>
-                <b>Catalog:</b> {i.catalogNumber}
+                <b>Catalog:&nbsp;</b> {i.catalogNumber}
               </li>
               <li>
-                <b>Released:</b> {i.released}
+                <b>Released:&nbsp;</b> {i.released}
               </li>
               <li>
-                <b>Format:</b> {i.type}
+                <b>Format:&nbsp;</b> {i.type}
               </li>
               <li>
-                <b>Genres:</b> {i.genres.join(", ")}
+                <b>Genres:&nbsp;</b> {i.genres.join(", ")}
               </li>
             </ul>
             <ul className="itemDetailsList">
@@ -40,18 +40,18 @@ const InventoryItemDetails = (props: props) => {
                 <b>Product Info</b>
               </li>
               <li>
-                <b>Retail:</b> ${i.retailPrice}
+                <b>Retail:&nbsp;</b> ${i.retailPrice}
               </li>
               <li>
-                <b>Unit Cost:</b> ${i.cost}
+                <b>Unit Cost:&nbsp;</b> ${i.cost}
               </li>
               <li>
-                <b>In Stock:</b> {i.stock > 0 ? `${i.stock}` : "Out Of Stock"}
+                <b>In Stock:&nbsp;</b> {i.stock > 0 ? `${i.stock}` : "Out Of Stock"}
               </li>
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  const stock = i.stock + inventoryAdjustNum;
+                  const stock = i.stock + inventoryAdjustNum < 0 ? 0 : i.stock + inventoryAdjustNum;
                   props.itemAdjust({
                     ...i,
                     stock,

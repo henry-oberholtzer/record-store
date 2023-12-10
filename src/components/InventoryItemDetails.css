@@ -4,6 +4,7 @@
 
 .itemDetails {
     margin-left: 7px;
+    width: 850px
 }
 
 .itemDetailsTop {
@@ -70,5 +71,14 @@
     flex-direction: row;
     width: 100%;
     margin-top: 5px;
+}
+
+.itemDetailsDescription {
+    height: 10em;
+}
+
+.itemDetailsDescription p {
+    margin: 0;
+    padding: 0;
 }
 
