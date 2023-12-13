@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { InventoryItem, InventoryFormProps } from "../Types";
 import { emptyItem } from "../data/savedInventory";
-import "./InventoryItemDetails.css";
+import "./css/InventoryItemDetails.css";
 import "./css/InventoryForm.css";
 import CD from "./../assets/Compact_Disc.jpg";
 
