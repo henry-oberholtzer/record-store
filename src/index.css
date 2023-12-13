@@ -89,16 +89,3 @@ button:focus-visible {
   visibility: hidden;
   position: fixed;
 }
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: ;
-    background-color:;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: ;
-  }
-} */
