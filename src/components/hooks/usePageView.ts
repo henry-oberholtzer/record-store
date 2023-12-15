@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { inventoryItem } from "../../Types";
+import { InventoryItem } from "../../Types";
 
 const usePageView = () => {
 	const [pageView, setPageView] = useState<number>(0);
-	const [viewItem, setViewItem] = useState<inventoryItem["key"]>();
+	const [viewItem, setViewItem] = useState<InventoryItem["key"]>();
 
 	const pageInv = 0;
 	const pageAddItem = 1;
