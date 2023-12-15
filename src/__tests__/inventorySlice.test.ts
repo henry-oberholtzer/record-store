@@ -1,5 +1,9 @@
 import { expect, test, describe } from "vitest";
-import reducer, { add, initialState } from "./../redux/slices/inventorySlice";
+import reducer, {
+	add,
+	remove,
+	initialState,
+} from "./../redux/slices/inventorySlice";
 
 describe("inventorySlice", () => {
 	const testInventory = {
@@ -30,6 +34,12 @@ describe("inventorySlice", () => {
 	test("When given item data, should add to state", () => {
 		expect(reducer(initialState, add(testInventory.aaaa))).toEqual(
 			testInventory
+		);
+	});
+
+	test("When given an item key to remove, should remove from inventory", () => {
+		expect(reducer(testInventory, remove(testInventory.aaaa.key))).toEqual(
+			initialState
 		);
 	});
 });

@@ -10,9 +10,13 @@ export const inventorySlice = createSlice({
 		add: (state, action: PayloadAction<InventoryItem>) => {
 			state[action.payload.key] = action.payload;
 		},
+		remove: (state, action: PayloadAction<InventoryItem["key"]>) => {
+			state;
+			action.payload;
+		},
 	},
 });
 
-export const { add } = inventorySlice.actions;
+export const { add, remove } = inventorySlice.actions;
 
 export default inventorySlice.reducer;
