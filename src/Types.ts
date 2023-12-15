@@ -15,6 +15,10 @@ export interface InventoryItem {
 	toDelete: boolean;
 }
 
+export interface Inventory {
+	[id: string]: InventoryItem;
+}
+
 export interface HeaderProps {
 	storeTitle: string;
 	setPageView: (arg1: number) => void;
