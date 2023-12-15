@@ -12,7 +12,6 @@ export interface InventoryItem {
 	retailPrice: number;
 	cost: number;
 	key: string;
-	toDelete: boolean;
 }
 
 export interface Inventory {
@@ -25,22 +24,7 @@ export interface InventoryFormProps {
 	buttonText: string;
 }
 
-export interface InventoryGridProps {
-	setPageView: (arg1: number) => void;
-	pageItemDetails: number;
-	setViewItem: (arg1: string) => void;
-}
-
 export interface InventoryGridItemProps {
 	item: InventoryItem;
-	pageItemDetails: number;
-}
-
-export interface InventoryItemDetailsProps {
-	item: InventoryItem;
-	setPageView: (arg1: number) => void;
-	pageEditItem: number;
-	pageInv: number;
-	setEditItem: (arg1: string) => void;
-	itemAdjust: (arg1: InventoryItem) => void;
+	setViewItem: number;
 }

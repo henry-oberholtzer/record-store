@@ -15,7 +15,6 @@ export const emptyItem: InventoryItem = {
 	retailPrice: 0,
 	cost: 0,
 	key: v4(),
-	toDelete: false,
 };
 
 export const savedInventory: Inventory = {
@@ -35,7 +34,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 12,
 		cost: 8,
 		key: "aaaa",
-		toDelete: false,
 	},
 	aaab: {
 		artist: "Audio Pancake",
@@ -52,7 +50,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 12,
 		cost: 8,
 		key: "aaab",
-		toDelete: false,
 	},
 	aaac: {
 		artist: "Ticon",
@@ -69,7 +66,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 11,
 		cost: 8,
 		key: "aaac",
-		toDelete: false,
 	},
 	aaad: {
 		artist: "Blue Planet Corporation",
@@ -87,7 +83,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 12,
 		cost: 10,
 		key: "aaad",
-		toDelete: false,
 	},
 	aaae: {
 		artist: "Darshan",
@@ -104,7 +99,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 12,
 		cost: 8,
 		key: "aaae",
-		toDelete: false,
 	},
 	aaaf: {
 		artist: "Unconscious Collective",
@@ -121,7 +115,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 12,
 		cost: 10,
 		key: "aaaf",
-		toDelete: false,
 	},
 	aaag: {
 		artist: "Various",
@@ -139,7 +132,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 20,
 		cost: 10,
 		key: "aaag",
-		toDelete: false,
 	},
 	aaah: {
 		artist: "ManMadeMan",
@@ -156,7 +148,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 10,
 		cost: 8,
 		key: "aaah",
-		toDelete: false,
 	},
 	aaai: {
 		artist: "Slinky Wizard",
@@ -174,7 +165,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 10,
 		cost: 9,
 		key: "aaai",
-		toDelete: false,
 	},
 	aaaj: {
 		artist: "4D",
@@ -191,7 +181,6 @@ export const savedInventory: Inventory = {
 		retailPrice: 11,
 		cost: 9,
 		key: "aaaj",
-		toDelete: false,
 	},
 };
 

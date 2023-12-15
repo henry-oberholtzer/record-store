@@ -64,8 +64,9 @@ App
 
 ## Upcoming Changes
 
-- Remove "To Delete" from Inventory Items, no longer necessary
 - Add console pop up to confirm choice to delete items from inventory
+- Change "change quantity" to "add to cart"
+- Add cart for user
 
 ## License
 
