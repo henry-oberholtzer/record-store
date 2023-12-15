@@ -29,7 +29,11 @@ export const interfaceSlice = createSlice({
 	reducers: {
 		changePage: (state, action: PayloadAction<ChangePage>) => {
 			state.pageSelected = action.payload.pageReq;
-			// state.itemSelected = action.payload.itemRequested;
+			if (action.payload.itemReq) {
+				state.itemSelected = action.payload.itemReq;
+			} else {
+				state.itemSelected = "";
+			}
 		},
 	},
 });

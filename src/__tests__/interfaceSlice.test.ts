@@ -22,4 +22,12 @@ describe("interfaceSlice", () => {
 			itemSelected: "B",
 		});
 	});
+	test("Should revert itemSelected to blank if not given an item key", () => {
+		expect(
+			reducer(
+				{ itemSelected: "E", pageSelected: 2 },
+				changePage({ pageReq: 0 })
+			)
+		).toEqual(initialState);
+	});
 });
