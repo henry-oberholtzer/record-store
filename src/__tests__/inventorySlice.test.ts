@@ -27,6 +27,8 @@ describe("inventorySlice", () => {
 		},
 	};
 
+	const testItem = testInventory.aaaa;
+
 	test("Should return the initial state when called without an action", () => {
 		expect(reducer(initialState, { type: "" })).toEqual(initialState);
 	});
@@ -41,5 +43,13 @@ describe("inventorySlice", () => {
 		expect(reducer(testInventory, remove(testInventory.aaaa.key))).toEqual(
 			initialState
 		);
+	});
+
+	test("Add should also be able to modify items with the same key", () => {
+		expect(
+			reducer(testInventory, add({ ...testItem, artist: "Chakra Freaky" }))
+		).toEqual({
+			aaaa: { ...testItem, artist: "Chakra Freaky" },
+		});
 	});
 });
