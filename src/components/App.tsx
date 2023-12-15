@@ -2,71 +2,34 @@ import Header from "./Header";
 import InventoryGrid from "./InventoryGrid";
 import InventoryItemDetails from "./InventoryItemDetails";
 import InventoryForm from "./InventoryForm";
-import usePageView from "./hooks/usePageView";
-import useInventory from "./hooks/useInventory";
+import {
+	PageDirectory,
+	itemSelected,
+	pageSelected,
+} from "../redux/slices/interfaceSlice";
+import { useAppSelector } from "./hooks/hooks";
 
 const App = () => {
-	const { pageView, setPageView, viewItem, setViewItem } = usePageView();
-	const { editItem, setEditItem, getItemFromInventory, itemAdjust } =
-		useInventory();
-
-	enum PageViews {
-		InventoryPage,
-		AddItemPage,
-		EditItemPage,
-		ItemDetailsPage,
-	}
+	const page = useAppSelector(pageSelected);
+	const item = useAppSelector(itemSelected);
 
 	const currentView = () => {
-		if (pageView === PageViews.InventoryPage) {
+		if (page === PageDirectory.InventoryPage) {
+			return <InventoryGrid />;
+		} else if (page === PageDirectory.AddItemPage) {
+			return <InventoryForm buttonText="Add to Inventory" />;
+		} else if (page === PageDirectory.EditItemPage && item) {
 			return (
-				<InventoryGrid
-					setPageView={setPageView}
-					pageItemDetails={PageViews.InventoryPage}
-					setViewItem={setViewItem}
-				/>
+				<InventoryForm buttonText="Finish Editing Item & Update Inventory" />
 			);
-		} else if (pageView === PageViews.AddItemPage) {
-			return (
-				<InventoryForm
-					buttonText="Add to Inventory"
-					itemAdjust={itemAdjust}
-					setPageView={setPageView}
-					returnPage={PageViews.InventoryPage}
-				/>
-			);
-		} else if (pageView === PageViews.EditItemPage && editItem) {
-			return (
-				<InventoryForm
-					buttonText="Finish Editing Item & Update Inventory"
-					itemToEdit={getItemFromInventory(editItem)}
-					itemAdjust={itemAdjust}
-					setPageView={setPageView}
-					returnPage={PageViews.ItemDetailsPage}
-				/>
-			);
-		} else if (pageView === PageViews.ItemDetailsPage && viewItem) {
-			return (
-				<InventoryItemDetails
-					item={getItemFromInventory(viewItem)}
-					setPageView={setPageView}
-					pageInv={PageViews.InventoryPage}
-					pageEditItem={PageViews.ItemDetailsPage}
-					setEditItem={setEditItem}
-					itemAdjust={itemAdjust}
-				/>
-			);
+		} else if (page === PageDirectory.ItemDetailsPage && item) {
+			return <InventoryItemDetails />;
 		}
 	};
 
 	return (
 		<>
-			<Header
-				storeTitle="Henry's Record Store"
-				setPageView={setPageView}
-				viewInventory={PageViews.InventoryPage}
-				viewNewItem={PageViews.AddItemPage}
-			/>
+			<Header />
 			{currentView()}
 		</>
 	);

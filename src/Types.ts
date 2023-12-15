@@ -21,24 +21,8 @@ export interface Inventory {
 
 export type invKey = keyof Inventory;
 
-export interface interfaceState {
-	pageSelected: number;
-	itemSelected: InventoryItem["key"];
-}
-
-export interface HeaderProps {
-	storeTitle: string;
-	setPageView: (arg1: number) => void;
-	viewInventory: number;
-	viewNewItem: number;
-}
-
 export interface InventoryFormProps {
 	buttonText: string;
-	itemToEdit?: InventoryItem;
-	itemAdjust: (arg1: InventoryItem) => void;
-	setPageView: (arg1: number) => void;
-	returnPage: number;
 }
 
 export interface InventoryGridProps {
@@ -49,9 +33,7 @@ export interface InventoryGridProps {
 
 export interface InventoryGridItemProps {
 	item: InventoryItem;
-	setPageView: (arg1: number) => void;
 	pageItemDetails: number;
-	setViewItem: (arg1: string) => void;
 }
 
 export interface InventoryItemDetailsProps {

@@ -1,28 +1,29 @@
-import PropTypes from "prop-types";
-import { HeaderProps } from "../Types";
 import "./css/Header.css";
+import { PageDirectory } from "../redux/slices/interfaceSlice";
+import { useAppDispatch } from "./hooks/hooks";
+import { changePage } from "../redux/slices/interfaceSlice";
 
-const Header = (props: HeaderProps) => {
+const Header = () => {
+	const dispatch = useAppDispatch();
 	return (
 		<div className="header">
-			<h1>{props.storeTitle}</h1>
+			<h1>Rhythm Emporium</h1>
 			<hr />
-			<button onClick={() => props.setPageView(props.viewInventory)}>
+			<button
+				onClick={() =>
+					dispatch(changePage({ pageReq: PageDirectory.InventoryPage }))
+				}>
 				View Inventory
 			</button>
-			<button onClick={() => props.setPageView(props.viewNewItem)}>
+			<button
+				onClick={() =>
+					dispatch(changePage({ pageReq: PageDirectory.InventoryPage }))
+				}>
 				Add New Item
 			</button>
 			<hr />
 		</div>
 	);
-};
-
-Header.propTypes = {
-	storeTitle: PropTypes.string,
-	setPageView: PropTypes.func,
-	viewInventory: PropTypes.number,
-	viewNewItem: PropTypes.number,
 };
 
 export default Header;

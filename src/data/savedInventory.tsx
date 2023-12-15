@@ -34,7 +34,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 12,
 		cost: 8,
-		key: v4(),
+		key: "aaaa",
 		toDelete: false,
 	},
 	aaab: {
@@ -51,7 +51,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 12,
 		cost: 8,
-		key: v4(),
+		key: "aaab",
 		toDelete: false,
 	},
 	aaac: {
@@ -68,7 +68,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 11,
 		cost: 8,
-		key: v4(),
+		key: "aaac",
 		toDelete: false,
 	},
 	aaad: {
@@ -86,7 +86,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 12,
 		cost: 10,
-		key: v4(),
+		key: "aaad",
 		toDelete: false,
 	},
 	aaae: {
@@ -103,7 +103,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 12,
 		cost: 8,
-		key: v4(),
+		key: "aaae",
 		toDelete: false,
 	},
 	aaaf: {
@@ -120,7 +120,7 @@ export const savedInventory: Inventory = {
 		stock: 40,
 		retailPrice: 12,
 		cost: 10,
-		key: v4(),
+		key: "aaaf",
 		toDelete: false,
 	},
 	aaag: {
@@ -138,7 +138,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 20,
 		cost: 10,
-		key: v4(),
+		key: "aaag",
 		toDelete: false,
 	},
 	aaah: {
@@ -155,7 +155,7 @@ export const savedInventory: Inventory = {
 		stock: 60,
 		retailPrice: 10,
 		cost: 8,
-		key: v4(),
+		key: "aaah",
 		toDelete: false,
 	},
 	aaai: {
@@ -173,7 +173,7 @@ export const savedInventory: Inventory = {
 		stock: 50,
 		retailPrice: 10,
 		cost: 9,
-		key: v4(),
+		key: "aaai",
 		toDelete: false,
 	},
 	aaaj: {
@@ -190,7 +190,7 @@ export const savedInventory: Inventory = {
 		stock: 60,
 		retailPrice: 11,
 		cost: 9,
-		key: v4(),
+		key: "aaaj",
 		toDelete: false,
 	},
 };

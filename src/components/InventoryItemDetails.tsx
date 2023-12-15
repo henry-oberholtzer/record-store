@@ -1,11 +1,15 @@
-import PropTypes from "prop-types";
-import { InventoryItemDetailsProps } from "../Types";
 import { useState } from "react";
 import "./css/InventoryItemDetails.css";
-
-const InventoryItemDetails = (props: InventoryItemDetailsProps) => {
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { PageDirectory, itemSelected } from "../redux/slices/interfaceSlice";
+import { add } from "../redux/slices/inventorySlice";
+import { changePage } from "../redux/slices/interfaceSlice";
+import { getItem } from "../redux/slices/inventorySlice";
+const InventoryItemDetails = () => {
+	const dispatch = useAppDispatch();
 	const [inventoryAdjustNum, setInventoryAdjustNum] = useState<number>(-1);
-	const i = props.item;
+	const currentItem = useAppSelector(itemSelected);
+	const i = useAppSelector(getItem)[currentItem];
 	return (
 		<div className="itemDetails">
 			<div className="itemDetailsTop">
@@ -56,10 +60,14 @@ const InventoryItemDetails = (props: InventoryItemDetailsProps) => {
 										i.stock + inventoryAdjustNum < 0
 											? 0
 											: i.stock + inventoryAdjustNum;
-									props.itemAdjust({
-										...i,
-										stock,
-									});
+									if (stock !== i.stock) {
+										dispatch(
+											add({
+												...i,
+												stock,
+											})
+										);
+									}
 								}}>
 								<li className="invAdjLi">
 									<label className="hidden" htmlFor="inventoryAdjust">
@@ -87,32 +95,14 @@ const InventoryItemDetails = (props: InventoryItemDetailsProps) => {
 			<hr />
 			<button
 				onClick={() => {
-					props.setEditItem(i.key);
-					props.setPageView(props.pageEditItem);
+					dispatch(
+						changePage({ pageReq: PageDirectory.EditItemPage, itemReq: i.key })
+					);
 				}}>
 				Edit This Item
 			</button>
-			<button
-				onClick={() => {
-					const toDelete = true;
-					props.itemAdjust({
-						...i,
-						toDelete,
-					});
-					props.setPageView(props.pageInv);
-				}}>
-				Delete This Item
-			</button>
 		</div>
 	);
-};
-
-InventoryItemDetails.propTypes = {
-	item: PropTypes.object.isRequired,
-	setPageView: PropTypes.func.isRequired,
-	pageEditItem: PropTypes.number.isRequired,
-	setEditItem: PropTypes.func.isRequired,
-	itemAdjust: PropTypes.func.isRequired,
 };
 
 export default InventoryItemDetails;

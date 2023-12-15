@@ -62,6 +62,11 @@ App
 - When navigating to "Edit Item" and clicking on "Add New Item" form information is retained
 - itemAdjust current breaks the rule of no conditionals for hooks, looking into work-arounds
 
+## Upcoming Changes
+
+- Remove "To Delete" from Inventory Items, no longer necessary
+- Add console pop up to confirm choice to delete items from inventory
+
 ## License
 
 Copyright [Henry Oberholtzer](https://www.henryoberholtzer.com/) (c) 2023

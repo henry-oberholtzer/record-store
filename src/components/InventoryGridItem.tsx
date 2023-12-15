@@ -1,16 +1,23 @@
 import PropTypes from "prop-types";
 import { InventoryGridItemProps } from "../Types";
 import "./css/InventoryGridItem.css";
+import { PageDirectory, changePage } from "../redux/slices/interfaceSlice";
+import { useAppDispatch } from "./hooks/hooks";
 
 const InventoryGridItem = (props: InventoryGridItemProps) => {
+	const dispatch = useAppDispatch();
 	const i = props.item;
 	return (
 		<div
 			className={i.stock < 1 ? "invGridItem outOfStock" : "invGridItem"}
 			key={i.key}
 			onClick={() => {
-				props.setPageView(props.pageItemDetails);
-				props.setViewItem(i.key);
+				dispatch(
+					changePage({
+						pageReq: PageDirectory.ItemDetailsPage,
+						itemReq: i.key,
+					})
+				);
 			}}>
 			<img src={i.imageURL} alt={i.title} />
 			<div id="prodinf">
@@ -43,8 +50,6 @@ const InventoryGridItem = (props: InventoryGridItemProps) => {
 
 InventoryGridItem.propTypes = {
 	item: PropTypes.object,
-	setPageView: PropTypes.func,
-	pageItemDetails: PropTypes.number,
 	setViewItem: PropTypes.func,
 };
 

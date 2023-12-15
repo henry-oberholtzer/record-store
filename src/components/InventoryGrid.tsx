@@ -1,11 +1,12 @@
-import PropTypes from "prop-types";
-import { InventoryGridProps, invKey } from "../Types";
+import { invKey } from "../Types";
 import InventoryGridItem from "./InventoryGridItem";
 import "./css/InventoryGrid.css";
 import { useAppSelector } from "./hooks/hooks";
+import { PageDirectory } from "../redux/slices/interfaceSlice";
 
-const InventoryGrid = (props: InventoryGridProps) => {
+const InventoryGrid = () => {
 	const inventory = useAppSelector((state) => state.inventory);
+
 	return (
 		<div className="inventory-grid">
 			{Object.keys(inventory).map((key: invKey) => {
@@ -14,21 +15,13 @@ const InventoryGrid = (props: InventoryGridProps) => {
 					<div key={item.key}>
 						<InventoryGridItem
 							item={item}
-							setViewItem={props.setViewItem}
-							setPageView={props.setPageView}
-							pageItemDetails={props.pageItemDetails}
+							pageItemDetails={PageDirectory.ItemDetailsPage}
 						/>
 					</div>
 				);
 			})}
 		</div>
 	);
-};
-
-InventoryGrid.propTypes = {
-	setPageView: PropTypes.func,
-	pageItemDetails: PropTypes.number,
-	setViewItem: PropTypes.func,
 };
 
 export default InventoryGrid;

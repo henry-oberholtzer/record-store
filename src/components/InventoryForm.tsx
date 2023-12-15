@@ -5,10 +5,18 @@ import { emptyItem } from "../data/savedInventory";
 import "./css/InventoryItemDetails.css";
 import "./css/InventoryForm.css";
 import CD from "./../assets/Compact_Disc.jpg";
+import { PageDirectory } from "../redux/slices/interfaceSlice";
+import { useAppSelector, useAppDispatch } from "./hooks/hooks";
+import { itemSelected } from "../redux/slices/interfaceSlice";
+import { getItem, add, remove } from "../redux/slices/inventorySlice";
+import { changePage } from "../redux/slices/interfaceSlice";
 
 const InventoryForm = (props: InventoryFormProps) => {
+	const dispatch = useAppDispatch();
+	const itemKey = useAppSelector(itemSelected);
+	const inventory = useAppSelector(getItem);
 	const [item, setItem] = useState<InventoryItem>(
-		props.itemToEdit ? props.itemToEdit : { ...emptyItem }
+		itemKey !== "" ? inventory[itemKey] : { ...emptyItem }
 	);
 
 	const checkItemValues = (invItem: InventoryItem) => {
@@ -210,12 +218,28 @@ const InventoryForm = (props: InventoryFormProps) => {
 			<button
 				onClick={() => {
 					if (checkItemValues(item)) {
-						props.itemAdjust(item);
-						props.setPageView(props.returnPage);
+						dispatch(add(item));
+						dispatch(
+							changePage({
+								pageReq: PageDirectory.ItemDetailsPage,
+								itemReq: item.key,
+							})
+						);
 					}
 				}}>
 				{props.buttonText}
 			</button>
+			{itemKey !== "" ? (
+				<></>
+			) : (
+				<button
+					onClick={() => {
+						dispatch(remove(item.key));
+						dispatch(changePage({ pageReq: PageDirectory.InventoryPage }));
+					}}>
+					Delete This Item
+				</button>
+			)}
 		</div>
 	);
 };

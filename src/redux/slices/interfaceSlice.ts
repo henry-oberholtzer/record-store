@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { InventoryItem } from "../../Types";
+import { RootState } from "../store";
 
 export enum PageDirectory {
 	InventoryPage,
@@ -39,5 +40,8 @@ export const interfaceSlice = createSlice({
 });
 
 export const { changePage } = interfaceSlice.actions;
+
+export const pageSelected = (state: RootState) => state.interface.pageSelected;
+export const itemSelected = (state: RootState) => state.interface.itemSelected;
 
 export default interfaceSlice.reducer;
