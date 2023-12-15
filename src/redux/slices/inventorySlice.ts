@@ -11,8 +11,7 @@ export const inventorySlice = createSlice({
 			state[action.payload.key] = action.payload;
 		},
 		remove: (state, action: PayloadAction<InventoryItem["key"]>) => {
-			state;
-			action.payload;
+			delete state[action.payload];
 		},
 	},
 });
