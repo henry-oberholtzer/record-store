@@ -16,7 +16,14 @@ export interface InventoryItem {
 }
 
 export interface Inventory {
-	[id: string]: InventoryItem;
+	[key: string]: InventoryItem;
+}
+
+export type invKey = keyof Inventory;
+
+export interface interfaceState {
+	pageSelected: number;
+	itemSelected: InventoryItem["key"];
 }
 
 export interface HeaderProps {
@@ -35,7 +42,6 @@ export interface InventoryFormProps {
 }
 
 export interface InventoryGridProps {
-	inventory: InventoryItem[];
 	setPageView: (arg1: number) => void;
 	pageItemDetails: number;
 	setViewItem: (arg1: string) => void;

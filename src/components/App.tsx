@@ -7,7 +7,7 @@ import useInventory from "./hooks/useInventory";
 
 const App = () => {
 	const { pageView, setPageView, viewItem, setViewItem } = usePageView();
-	const { inventory, editItem, setEditItem, getItemFromInventory, itemAdjust } =
+	const { editItem, setEditItem, getItemFromInventory, itemAdjust } =
 		useInventory();
 
 	enum PageViews {
@@ -21,7 +21,6 @@ const App = () => {
 		if (pageView === PageViews.InventoryPage) {
 			return (
 				<InventoryGrid
-					inventory={inventory}
 					setPageView={setPageView}
 					pageItemDetails={PageViews.InventoryPage}
 					setViewItem={setViewItem}
