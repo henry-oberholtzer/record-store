@@ -7,6 +7,7 @@ export enum PageDirectory {
 	AddItemPage,
 	EditItemPage,
 	ItemDetailsPage,
+	LoginPage,
 }
 
 interface InterfaceState {

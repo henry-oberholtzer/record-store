@@ -1,3 +1,11 @@
-.header {
-    text-align: center;
+.headerUpper {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.headerUpper h1 {
+	text-wrap: nowrap;
+	width: fit-content;
 }

@@ -4,15 +4,21 @@ A React web application that utilizies Redux for state, written in Typescript & 
 
 This project is a fork of [Inventory Tracker](https://github.com/henry-oberholtzer/inventory-tracker) and has been refactored to make use of Redux for shared state.
 
+New features included a fake user log in and database of users. Not implemented in a real server method (yet)
+
 By Henry Oberholtzer
 
 ## Technologies Used
 
 - React
+- Redux
+- Redux Toolkit
 - TypeScript
 - JavaScript
 - Vite
 - Webpack
+- Date FNs
+- string-to-uuid
 
 ## Description
 
@@ -66,7 +72,14 @@ App
 
 - Add console pop up to confirm choice to delete items from inventory
 - Change "change quantity" to "add to cart"
-- Add cart for user
+- Add UserState
+  - User
+  - User Log-In
+  - User Cart
+  - User Shipping Address
+  - User Billing Address
+  - User Cart
+  - User Past orders
 
 ## License
 

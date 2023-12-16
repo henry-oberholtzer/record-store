@@ -8,6 +8,7 @@ import {
 	pageSelected,
 } from "../redux/slices/interfaceSlice";
 import { useAppSelector } from "./hooks/hooks";
+import LoginPage from "./LoginPage";
 
 const App = () => {
 	const page = useAppSelector(pageSelected);
@@ -24,6 +25,8 @@ const App = () => {
 			);
 		} else if (page === PageDirectory.ItemDetailsPage && item) {
 			return <InventoryItemDetails />;
+		} else if (page === PageDirectory.LoginPage) {
+			return <LoginPage />;
 		}
 	};
 

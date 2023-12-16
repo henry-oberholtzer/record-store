@@ -2,12 +2,19 @@ import "./css/Header.css";
 import { PageDirectory } from "../redux/slices/interfaceSlice";
 import { useAppDispatch } from "./hooks/hooks";
 import { changePage } from "../redux/slices/interfaceSlice";
+import UserInformation from "./UserInformation";
 
 const Header = () => {
 	const dispatch = useAppDispatch();
 	return (
 		<div className="header">
-			<h1>Rhythm Emporium</h1>
+			<div className="headerUpper">
+				<div></div>
+				<h1>Rhythm Emporium</h1>
+				<div>
+					<UserInformation />
+				</div>
+			</div>
 			<hr />
 			<button
 				onClick={() =>
@@ -21,6 +28,7 @@ const Header = () => {
 				}>
 				Add New Item
 			</button>
+
 			<hr />
 		</div>
 	);
