@@ -73,12 +73,9 @@ App
 - Add console pop up to confirm choice to delete items from inventory
 - Change "change quantity" to "add to cart"
 - Add UserState
-  - User
-  - User Log-In
+  - User Account Creation
   - User Cart
-  - User Shipping Address
-  - User Billing Address
-  - User Cart
+  - User "Ordering"
   - User Past orders
 
 ## License
