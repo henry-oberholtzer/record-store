@@ -1,15 +1,15 @@
-import PropTypes from "prop-types";
-import { InventoryGridItemProps } from "../Types";
-import "./css/InventoryGridItem.css";
-import { PageDirectory, changePage } from "../redux/slices/interfaceSlice";
-import { useAppDispatch } from "./hooks/hooks";
+import PropTypes from 'prop-types';
+import { InventoryGridItemProps } from '../Types';
+import './css/InventoryGridItem.css';
+import { PageDirectory, changePage } from '../redux/slices/interfaceSlice';
+import { useAppDispatch } from './hooks/hooks';
 
 const InventoryGridItem = (props: InventoryGridItemProps) => {
 	const dispatch = useAppDispatch();
 	const i = props.item;
 	return (
 		<div
-			className={i.stock < 1 ? "invGridItem outOfStock" : "invGridItem"}
+			className={i.stock < 1 ? 'invGridItem outOfStock' : 'invGridItem'}
 			key={i.key}
 			onClick={() => {
 				dispatch(
@@ -19,13 +19,20 @@ const InventoryGridItem = (props: InventoryGridItemProps) => {
 					})
 				);
 			}}>
-			<img src={i.imageURL} alt={i.title} />
+			<img
+				src={i.imageURL}
+				alt={i.title}
+			/>
 			<div id="prodinf">
 				<div id="abt">
-					<h5 className="title" title={i.artist}>
+					<h5
+						className="title"
+						title={i.artist}>
 						{i.artist}
 					</h5>
-					<h4 className="title" title={i.title}>
+					<h4
+						className="title"
+						title={i.title}>
 						{i.title}
 					</h4>
 				</div>
@@ -50,7 +57,6 @@ const InventoryGridItem = (props: InventoryGridItemProps) => {
 
 InventoryGridItem.propTypes = {
 	item: PropTypes.object,
-	setViewItem: PropTypes.func,
 };
 
 export default InventoryGridItem;

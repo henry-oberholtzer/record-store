@@ -26,5 +26,4 @@ export interface InventoryFormProps {
 
 export interface InventoryGridItemProps {
 	item: InventoryItem;
-	setViewItem: number;
 }
