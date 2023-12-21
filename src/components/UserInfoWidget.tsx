@@ -1,11 +1,10 @@
-import { useAppSelector, useAppDispatch } from "./hooks/hooks";
+import { useAppSelector, useAppDispatch } from './hooks/hooks';
 import {
 	getLoggedIn,
 	getUserData,
 	unsetLocalUser,
-} from "../redux/slices/localUserSlice";
-import { formatDistanceToNow } from "date-fns";
-import { changePage, PageDirectory } from "../redux/slices/interfaceSlice";
+} from '../redux/slices/localUserSlice';
+import { changePage, PageDirectory } from '../redux/slices/interfaceSlice';
 
 const UseInfoWidget = () => {
 	const user = useAppSelector(getUserData);
@@ -21,11 +20,10 @@ const UseInfoWidget = () => {
 			return (
 				<>
 					<p>Welcome back, {user.firstName}</p>
-					<p>
-						Last seen {formatDistanceToNow(user.lastSeen, { addSuffix: true })}
-					</p>
 					<button className="smallButton">My Account</button>
-					<button className="smallButton" onClick={() => logOut()}>
+					<button
+						className="smallButton"
+						onClick={() => logOut()}>
 						Log Out
 					</button>
 				</>
