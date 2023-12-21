@@ -1,18 +1,18 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-import { users, userDataPayload } from "../../userTypes";
-import temporaryUsers from "../../data/temporaryUsers";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
+import { user, users } from '../../userTypes';
+import temporaryUsers from '../../data/temporaryUsers';
 
 export const initialState: users = temporaryUsers;
 
 export const usersSlice = createSlice({
-	name: "users",
+	name: 'users',
 	initialState,
 	reducers: {
-		createAccount: (state, action: PayloadAction<userDataPayload>) => {
-			state[action.payload.key] = action.payload.user;
+		createAccount: (state, action: PayloadAction<user>) => {
+			state[action.payload.key] = action.payload;
 		},
-		deleteAccount: (state, action: PayloadAction<userDataPayload>) => {
+		deleteAccount: (state, action: PayloadAction<user>) => {
 			delete state[action.payload.key];
 		},
 	},

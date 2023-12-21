@@ -7,7 +7,7 @@ import {
 import { formatDistanceToNow } from "date-fns";
 import { changePage, PageDirectory } from "../redux/slices/interfaceSlice";
 
-const UserInformation = () => {
+const UseInfoWidget = () => {
 	const user = useAppSelector(getUserData);
 	const loggedIn = useAppSelector(getLoggedIn);
 	const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const UserInformation = () => {
 		if (loggedIn && user) {
 			return (
 				<>
-					<p>{user.username}</p>
+					<p>Welcome back, {user.firstName}</p>
 					<p>
 						Last seen {formatDistanceToNow(user.lastSeen, { addSuffix: true })}
 					</p>
@@ -34,7 +34,15 @@ const UserInformation = () => {
 			return (
 				<>
 					<p>Not Logged In</p>
-					<button className="smallButton">Register</button>
+					<button
+						className="smallButton"
+						onClick={() =>
+							dispatch(
+								changePage({ pageReq: PageDirectory.AccountRegistrationPage })
+							)
+						}>
+						Register
+					</button>
 					<button
 						onClick={() =>
 							dispatch(changePage({ pageReq: PageDirectory.LoginPage }))
@@ -46,7 +54,7 @@ const UserInformation = () => {
 		}
 	};
 
-	return <div className="UserInformationFrame">{display()}</div>;
+	return <div className="UserInfoWidgetFrame">{display()}</div>;
 };
 
-export default UserInformation;
+export default UseInfoWidget;

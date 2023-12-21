@@ -1,8 +1,8 @@
-import "./css/Header.css";
-import { PageDirectory } from "../redux/slices/interfaceSlice";
-import { useAppDispatch } from "./hooks/hooks";
-import { changePage } from "../redux/slices/interfaceSlice";
-import UserInformation from "./UserInformation";
+import './css/Header.css';
+import { PageDirectory } from '../redux/slices/interfaceSlice';
+import { useAppDispatch } from './hooks/hooks';
+import { changePage } from '../redux/slices/interfaceSlice';
+import UseInfoWidget from './UserInfoWidget';
 
 const Header = () => {
 	const dispatch = useAppDispatch();
@@ -12,7 +12,7 @@ const Header = () => {
 				<div></div>
 				<h1>Rhythm Emporium</h1>
 				<div>
-					<UserInformation />
+					<UseInfoWidget />
 				</div>
 			</div>
 			<hr />
@@ -24,7 +24,7 @@ const Header = () => {
 			</button>
 			<button
 				onClick={() =>
-					dispatch(changePage({ pageReq: PageDirectory.InventoryPage }))
+					dispatch(changePage({ pageReq: PageDirectory.AddItemPage }))
 				}>
 				Add New Item
 			</button>

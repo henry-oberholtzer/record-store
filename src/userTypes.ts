@@ -4,7 +4,6 @@ export interface logIn {
 }
 
 export interface shippingAddress {
-	addressTo: string;
 	streetName: string;
 	city: string;
 	country: string;
@@ -21,38 +20,26 @@ export interface cartItem {
 }
 
 export interface savedCart {
-	[key: cartItem["itemKey"]]: cartItem;
+	[key: cartItem['itemKey']]: cartItem;
 }
 
-export const RECIEVED = "RECIEVED";
-export const SHIPPED = "SHIPPED";
-const CANCELLED = "CANCELLED";
-const REFUNDED = "REFUNDED";
-
-export interface pastOrders {
-	[key: string]: {
-		date: Date;
-		status:
-			| typeof RECIEVED
-			| typeof SHIPPED
-			| typeof CANCELLED
-			| typeof REFUNDED;
-		order: savedCart;
-	};
+export interface registrationData {
+	password?: string;
+	firstName?: string;
+	lastName?: string;
+	email?: string;
 }
 
-export interface userDataPayload {
-	key: string;
-	user: user;
+export interface signInData {
+	password?: string;
+	email?: string;
 }
 
 export interface user {
-	username: string;
-	memberSince: Date;
-	lastSeen: Date;
-	shippingAddress: shippingAddress;
-	savedCart?: savedCart;
-	pastOrders?: pastOrders;
+	key: string;
+	firstName: string;
+	lastName: string;
+	email: string;
 }
 
 export interface userLoggedIn {

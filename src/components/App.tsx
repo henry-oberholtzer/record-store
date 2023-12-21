@@ -8,7 +8,8 @@ import {
 	pageSelected,
 } from "../redux/slices/interfaceSlice";
 import { useAppSelector } from "./hooks/hooks";
-import LoginPage from "./LoginPage";
+import LoginPage from "./AccountLoginPage";
+import AccountRegistration from "./AccountRegistration";
 
 const App = () => {
 	const page = useAppSelector(pageSelected);
@@ -27,6 +28,8 @@ const App = () => {
 			return <InventoryItemDetails />;
 		} else if (page === PageDirectory.LoginPage) {
 			return <LoginPage />;
+		} else if (page === PageDirectory.AccountRegistrationPage) {
+			return <AccountRegistration />;
 		}
 	};
 
